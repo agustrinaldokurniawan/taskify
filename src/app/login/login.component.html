@@ -1,0 +1,49 @@
+<div class="flex justify-content-center align-items-center h-screen">
+  <p-card class="w-25rem">
+    <h1 class="text-center text-blue-700">Taskify</h1>
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      class="flex flex-column gap-4"
+    >
+      <input
+        type="email"
+        pInputText
+        formControlName="email"
+        class="w-full"
+        placeholder="Enter your email"
+      />
+
+      <p-password
+        *ngIf="accountExists"
+        formControlName="password"
+        [toggleMask]="true"
+        [style]="{ width: '100%' }"
+        [inputStyle]="{ width: '100%' }"
+      ></p-password>
+      <p-button label="Submit" [style]="{ width: '100%' }"></p-button>
+    </form>
+    <p class="text-center mt-6 mb-4">Or continue with:</p>
+    <div class="flex justify-content-around">
+      <p-button icon="pi pi-google"></p-button>
+      <p-button icon="pi pi-twitter"></p-button>
+      <p-button icon="pi pi-facebook"></p-button>
+    </div>
+    <div class="text-center mt-4">
+      <a href="#"> Can't login? </a>
+    </div>
+    <ng-template pTemplate="footer">
+      <p-divider></p-divider>
+      <div class="text-center">
+        <h3 class="mb-2">Taskify</h3>
+        <small>Ready to organize your tasks.</small>
+        <div class="flex justify-content-around mt-4">
+          <a href="privacy-policy" class="text-gray-700"
+            ><small>Privacy Policy</small></a
+          >
+          <a href="term-use" class="text-gray-700"><small>Term Use</small></a>
+        </div>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
